@@ -1,0 +1,43 @@
+@layout.default({title: 'Home Pages'}) 
+
+  @slot('meta')
+  <meta name="description" content="Home Pages" />
+  @endslot
+
+
+  <h1 class="text-black font-bold text-4xl">Testing HTMX using Adonis.Js</h1>
+
+  {{--  filter  --}}
+  <div class="border border-slate-500 my-10 p-4 rounded-md">
+    <div method="GET" action="" class="flex align-middle gap-3">
+
+      <input type="text" class="grow" placeholder="Search Title"/>
+      <select>
+        <option>First Options</option>
+        <option>Second Option</option>
+        <option>Third Option</option>
+
+      </select>
+
+      <select>
+        <option>First Options</option>
+        <option>Second Option</option>
+        <option>Third Option</option>
+
+      </select>
+      {{--  <button >Submit</button>  --}}
+    </div>
+  </div>
+
+  {{--  Content container  --}}
+  <div class="flex flex-col gap-4 my-10">
+    @each(article in articles)
+      <div class="border border-slate-400 py-3 px-5">
+        <h3 class="text-lg font-bold">{{article.title}}</h3>
+        <p>{{article.content}}</p>
+      </div>
+    @end
+  </div>
+
+  
+@end
